@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 Ryan Harding
+ */
+
 package base;
 
 import java.util.Scanner;
@@ -14,12 +19,28 @@ public class CurrencyConversion {
 
   public double euros() {
     System.out.print("How many euros are you exchanging? ");
-    return input.nextDouble();
+    String n = input.next();
+    try {
+      Double.parseDouble(n);
+    }
+    catch (NumberFormatException e) {
+      System.out.println("ERROR: Invalid Value! Try Again.");
+      return euros();
+    }
+    return Double.parseDouble(n);
   }
 
   public double conversion() {
     System.out.print("What is the exchange rate? ");
-    return input.nextDouble();
+    String n = input.next();
+    try {
+      Double.parseDouble(n);
+    }
+    catch (NumberFormatException e) {
+      System.out.println("ERROR: Invalid Value! Try Again.");
+      return conversion();
+    }
+    return Double.parseDouble(n);
   }
 
   public String dollars(double e, double c) {
